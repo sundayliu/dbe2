@@ -1,5 +1,5 @@
-from django.conf.urls.defaults import *
-from dbe.bombquiz.views import *
+from django.conf.urls import *
+from bombquiz.views import *
 
 urlpatterns = patterns("dbe.bombquiz.views",
     (r"^$"          , NewPlayer.as_view(), {}, "new_player"),

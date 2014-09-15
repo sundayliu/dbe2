@@ -2,12 +2,12 @@ from django.core.urlresolvers import reverse_lazy
 from django.db.models import Count, Avg
 from django.http import Http404
 
-from dbe.shared.utils import *
-from dbe.bombquiz.models import *
-from dbe.bombquiz.forms import *
+from shared.utils import *
+from bombquiz.models import *
+from bombquiz.forms import *
 
-from dbe.mcbv.base import TemplateView
-from dbe.mcbv.edit import CreateView, FormView
+from mcbv.base import TemplateView
+from mcbv.edit import CreateView, FormView
 
 seconds       = 30
 lose_question = 20
@@ -18,7 +18,7 @@ class NewPlayer(CreateView):
     form_model      = PlayerRecord
     modelform_class = NewPlayerForm
     success_url     = reverse_lazy("question")
-    template_name   = "newplayer.html"
+    template_name   = "bombquiz/newplayer.html"
 
     def modelform_valid(self, modelform):
         resp = super(NewPlayer, self).modelform_valid(modelform)
@@ -28,7 +28,7 @@ class NewPlayer(CreateView):
 
 
 class Stats(TemplateView):
-    template_name = "stats.html"
+    template_name = "bombquiz/stats.html"
 
     def add_context(self):
         records   = PlayerRecord.obj.filter(passed=False)
@@ -39,7 +39,7 @@ class Stats(TemplateView):
 
 class QuestionView(FormView):
     form_class    = QuestionForm
-    template_name = "question.html"
+    template_name = "bombquiz/question.html"
 
     def get_form_kwargs(self):
         """Get current section (container), init the form based on questions in the section."""

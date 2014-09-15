@@ -5,12 +5,12 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.forms import forms
 from django.core.mail import send_mail
 
-from dbe.shared.utils import *
-from dbe.issues.models import *
-from dbe.issues.forms import *
+from shared.utils import *
+from issues.models import *
+from issues.forms import *
 
-from dbe.mcbv.edit_custom import UpdateView, FormSetView
-from dbe.mcbv.list_custom import DetailListCreateView
+from mcbv.edit_custom import UpdateView, FormSetView
+from mcbv.list_custom import DetailListCreateView
 
 
 @staff_member_required
@@ -37,7 +37,7 @@ class UpdateIssue(UpdateView):
     form_model      = Issue
     modelform_class = IssueForm
     msg_tpl         = "Issue '%s' was updated <%s%s>\n\n%s"
-    template_name   = "issue_form.html"
+    template_name   = "issues/issue_form.html"
 
     def modelform_valid(self, modelform):
         """ If form was changed, send notification email the (new) issue owner.
@@ -83,7 +83,7 @@ class AddIssues(FormSetView):
     success_url        = reverse_lazy("admin:issues_issue_changelist")
     msg_tpl            = "New Issue '%s' was created <%s%s>\n\n%s"
     extra              = 2
-    template_name      = "add_issues.html"
+    template_name      = "issues/add_issues.html"
 
     def process_form(self, form):
         form.save()

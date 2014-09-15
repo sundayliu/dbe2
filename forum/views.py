@@ -1,13 +1,13 @@
 # Imports {{{
 from PIL import Image as PImage
 
-from dbe.settings import MEDIA_URL
-from dbe.forum.models import *
-from dbe.shared.utils import *
+from dbe2.settings import MEDIA_URL
+from forum.models import *
+from shared.utils import *
 
-from dbe.mcbv.detail import DetailView
-from dbe.mcbv.edit import CreateView, UpdateView
-from dbe.mcbv.list_custom import ListView, ListRelated
+from mcbv.detail import DetailView
+from mcbv.edit import CreateView, UpdateView
+from mcbv.list_custom import ListView, ListRelated
 
 from forms import ProfileForm, PostForm
 # }}}
@@ -21,20 +21,20 @@ class ForumView(ListRelated):
     detail_model  = Forum
     list_model    = Thread
     related_name  = "threads"
-    template_name = "forum.html"
+    template_name = "forum/forum.html"
 
 class ThreadView(ListRelated):
     list_model    = Post
     detail_model  = Thread
     related_name  = "posts"
-    template_name = "thread.html"
+    template_name = "forum/thread.html"
 
 
 class EditProfile(UpdateView):
     form_model      = UserProfile
     modelform_class = ProfileForm
     success_url     = '#'
-    template_name   = "profile.html"
+    template_name   = "forum/profile.html"
 
     def modelform_valid(self, modelform):
         """Resize and save profile image."""

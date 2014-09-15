@@ -1,5 +1,5 @@
 from django.db.models import *
-from dbe.shared.utils import *
+from shared.utils import *
 
 
 class Question(BaseModel):

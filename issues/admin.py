@@ -1,5 +1,5 @@
 from django.contrib import admin
-from dbe.issues.models import *
+from issues.models import *
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ["project"]

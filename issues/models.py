@@ -5,8 +5,8 @@ from django.db.models import *
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
-from settings import MEDIA_URL
-from dbe.shared.utils import *
+from dbe2.settings import MEDIA_URL
+from shared.utils import *
 
 btn_tpl  = "<div class='%s' id='%s_%s'><img class='btn' src='%simg/admin/icon-%s.gif' /></div>"
 namelink = "<a href='%s'>%s</a> <a style='float:right; font-size:0.6em;' href='%s'>edit</a>"

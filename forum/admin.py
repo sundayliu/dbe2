@@ -1,5 +1,5 @@
 from django.contrib import admin
-from dbe.forum.models import *
+from forum.models import *
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ["user"]

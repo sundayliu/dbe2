@@ -2,12 +2,12 @@
 import time
 from calendar import month_name
 
-from dbe.blog.models import *
-from dbe.blog.forms import *
-from dbe.shared.utils import *
+from blog.models import *
+from blog.forms import *
+from shared.utils import *
 
-from dbe.mcbv.list import ListView
-from dbe.mcbv.list_custom import DetailListCreateView
+from mcbv.list import ListView
+from mcbv.list_custom import DetailListCreateView
 # }}}
 
 

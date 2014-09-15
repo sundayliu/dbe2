@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib import admin
 from django.db.models.signals import post_save
 
-from dbe.settings import MEDIA_URL
-from dbe.shared.utils import *
+from dbe2.settings import MEDIA_URL
+from shared.utils import *
 
 
 class Forum(BaseModel):

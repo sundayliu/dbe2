@@ -3,7 +3,7 @@ from django.forms import widgets
 from django.forms.widgets import *
 from django.utils.safestring import mark_safe
 
-from dbe.issues.models import *
+from issues.models import *
 
 
 class SelectAndTextInput(widgets.MultiWidget):
